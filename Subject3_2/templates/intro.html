@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet" />
+  <title>intro</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    
+    #intro-screen { 
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-family: 'Nanum Gothic', sans-serif;
+    }
+    #intro-screen .intro-content {
+      text-align: center;
+    }
+    #intro-screen h1 {
+      font-size: 24px;
+      margin: 0 0 0.5rem;
+      color:#000;
+    }
+    #intro-screen h1 span {
+        background: linear-gradient(
+            68.71deg,
+            #ff4b00 14.2%,
+            #ff0067 48.27%,
+            #e700cb 80.47%
+        );
+        -webkit-background-clip: text;
+                background-clip: text;
+        -webkit-text-fill-color: transparent;
+                color: transparent;
+    }
+    #intro-screen p {
+      font-size: 18px;
+      margin: 10px 0 1.5rem;
+      color:#ddd;
+    }
+    .btn-primary {
+        display: inline-block;
+        width: 240px;         
+        padding: 0.75rem 0;
+        font-size: 18px;
+        font-weight: 500;
+        color: #fff;
+        background-color: #3b82f6;
+        border: none;
+        border-radius: 0.5rem;
+        text-align: center;
+      }
+      .btn-primary:hover {
+        background-color: #2563eb;
+      }
+  </style>
+</head>
+<body>
+  <div id="intro-screen">
+    <div class="intro-content">
+      <div class="intro-image" style="text-align:center; margin: 2rem 0;">
+            <img
+              src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+              alt="Friends sharing content on their smartphones"
+              style="max-width:40%; height:auto; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      </div>
+      <h1><span>나를 이해하는</span> 사람들과<br><br> 관심사를 공유해보세요.</h1><br>
+      <button class="btn-primary" onclick="enterSite()">입장하기</button>
+    </div>
+  </div>
+  <script>
+    function enterSite() {
+      window.location.href = '/';
+    }
+  </script>
+</body>
+</html>

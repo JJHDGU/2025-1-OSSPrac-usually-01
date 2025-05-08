@@ -1,1 +1,246 @@
-# index
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <title>home</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Nanum Gothic', sans-serif;
+            background-color: #fff;
+        }
+        
+        .header {       
+            padding: 10px 40px; 
+        }
+        .logo {
+            font-family: 'Pacifico', cursive;
+            font-size: 2rem; 
+            color: #262626;       
+            cursor: pointer;
+        }
+
+        .page-title {
+            text-align: left;
+            width: 90%;
+            margin-left: 40px;
+            font-size: 24px;
+            font-weight: bold;
+            padding-top: 30px;
+        }
+        .title-divider {
+            width: 90%;
+            border: none;
+            border-top: 2px solid #ccc;
+            marign:0 auto 20px 40px;
+        }
+        .profile-image {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 15px auto;
+            background-color: #e0e0e0;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+        }
+        .profile-text {
+            margin-top: 50px;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            padding: 40px 40px;
+            max-width: 1200px;
+            margin: 0 auto;       
+        }
+        .student-block {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 30%;                
+            min-width: 200px;
+            height: 400px;
+            text-align: left;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);  
+        }
+        .field-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .field-row strong {
+            width: 80px;    
+            font-size:14px;
+        }  
+        .underline-field {
+            flex-grow: 1;    
+            border-bottom: 1px solid #ccc;
+            height: 1em;       
+            margin-left: 8px;   
+        }
+       
+        
+
+        h1, h3, h5 {
+            text-align: center;
+        }
+        .site-footer {
+            background-color: #fff;
+            color: #737373
+            padding: 30px 20px;
+            font-size: 12px;
+            text-align: center;
+            margin-top: 60px;  
+        }
+        .footer-content {
+            width: 100%;
+            margin: 0 auto;
+            align-items: center;
+        }
+        .footer-btn {
+            display: inline-block;
+            padding: 6px 14px;           
+            margin: 0 4px;
+            font-size: 0.8rem;           
+            font-weight: 500;
+            color: #fff;
+            background: #ccc;
+            border: none;
+            border-radius: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }  
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo" onclick="location.href='/'">Usually</div>
+    </div>
+
+    <h1 class="page-title">학생리스트</h1>
+    <hr class="title-divider">
+    <div class="container">
+        <div class="student-block">
+            <div class="profile-image">
+                <img src="static/profile.png">
+            </div>
+            <div class="profile-text">
+                <p class="field-row">
+                    <strong>이름:</strong>
+                    <span class="underline-field"></span>
+                </p>
+                <p class="field-row">
+                    <strong>역할:</strong>
+                    <span class="underline-field"></span>
+                </p>
+                <p class="field-row">
+                    <strong>학과:</strong>
+                    <span class="underline-field"></span>
+                </p>
+                <p class="field-row">
+                    <strong>전화번호:</strong>
+                    <span class="underline-field"></span>
+                </p>
+                <p class="field-row">
+                    <strong>이메일 정보:</strong>
+                    <span class="underline-field"></span>
+                </p>
+            </div>
+        </div>
+        <div class="student-block">
+            <div class="profile-image">
+                <img src="static/profile.png">
+            </div>
+            <div class="profile-text">
+                <p class="field-row">
+                    <strong>이름:</strong>
+                    <span class="underline-field"></span>
+                </p>
+                <p class="field-row">
+                    <strong>역할:</strong>
+                    <span class="underline-field"></span>
+                </p>
+                <p class="field-row">
+                    <strong>학과:</strong>
+                    <span class="underline-field"></span>
+                </p>
+                <p class="field-row">
+                    <strong>전화번호:</strong>
+                    <span class="underline-field"></span>
+                </p>
+                <p class="field-row">
+                    <strong>이메일 정보:</strong>
+                    <span class="underline-field"></span>
+                </p>
+            </div>
+        </div> 
+        <div class="student-block">
+            <div class="profile-image">
+                <img src="static/profile.png">
+            </div>
+            <div class="profile-text">
+                <p class="field-row">
+                    <strong>이름:</strong>
+                    <span class="underline-field"></span>
+                </p>
+                <p class="field-row">
+                    <strong>역할:</strong>
+                    <span class="underline-field"></span>
+                </p>
+                <p class="field-row">
+                    <strong>학과:</strong>
+                    <span class="underline-field"></span>
+                </p>
+                <p class="field-row">
+                    <strong>전화번호:</strong>
+                    <span class="underline-field"></span>
+                </p>
+                <p class="field-row">
+                    <strong>이메일 정보:</strong>
+                    <span class="underline-field"></span>
+                </p>
+            </div>
+        </div>         
+    </div>
+    <div style="text-align: center; margin-top: 10px;">
+        <a href="/input">
+          <img src="static/send.png" alt="정보 수정" width="30" style="cursor: pointer;" class="edit-icon">
+        </a>
+      </div>
+
+    <div class="site-footer">
+        <div class="footer-content">
+            <span>📞 안내: </span>
+            <button class="footer-btn" onclick="showContactInfo()">팀 긴급연락</button>
+            <button class="footer-btn" onclick="openContactPage()">팀 연락정보</button>
+        </div>
+        <div class="footer-info">
+            <p>(주)UsuallyTeam · 서울특별시 중구 필동로 1길30 </p>
+            <p>© 2025 UsuallyTeam All rights reserved.</p>
+        </div>
+    </div>
+    <script>
+        function showContactInfo() {
+            alert("긴급전화: 010-1234-5678");
+        }
+        function openContactPage() {
+            window.open("/contact", "contactPage", "width=600,height=400");
+        }
+        function openInputPage() {
+            window.open("/input", "InputPage", "width=800,height=600");
+        }
+    </script>
+</body>
+</html>
