@@ -27,11 +27,11 @@ def intro():
 
 @app.route('/')
 def index():
-    return render_template('app_index.html')
+    return render_template('index.html')
 
 @app.route('/input')
 def input_page():
-    return render_template('app_input.html')
+    return render_template('input.html')
 
 @app.route('/result', methods=['POST'])
 def result_page():
@@ -66,11 +66,11 @@ def result_page():
             'email': email
         })
 
-    return render_template('app_result.html', students=students)
+    return render_template('result.html', students=students)
 
 @app.route('/contact')
 def contact_info():
-    return render_template('app_contact.html')
+    return render_template('contact.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
