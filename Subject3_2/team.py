@@ -74,5 +74,9 @@ def result_page():
 def contact_info():
     return render_template('contact.html')
 
+@app.route('/github_qr')
+def github_qr():
+    return render_template('github_qr.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
