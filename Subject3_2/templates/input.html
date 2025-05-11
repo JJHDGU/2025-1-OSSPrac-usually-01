@@ -95,6 +95,8 @@
             <input type="file" name="image[]" accept="image/*">
             <label>이름:</label>
             <input type="text" name="name[]" required value="{{ stu.name or '' }}">
+            <label>학번:</label>
+            <input type="text" name="ID[]" required value="{{ stu.name or '' }}">
             <label>역할:</label>
             <input type="text" name="role[]" required value="{{ stu.role or '' }}">
             <label>학과 (Major):</label>
@@ -123,6 +125,8 @@
           <input type="file" name="image[]" accept="image/*">
           <label>이름:</label>
           <input type="text" name="name[]" required>
+          <label>학번:</label>
+          <input type="text" name="ID[]" required>
           <label>역할:</label>
           <input type="text" name="role[]" required>
           <label>학과 (Major):</label>
