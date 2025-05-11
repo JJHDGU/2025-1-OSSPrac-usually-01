@@ -38,6 +38,7 @@ def result_page():
     files  = request.files.getlist('image[]')
     names  = request.form.getlist('name[]')
     IDs  = request.form.getlist('ID[]')
+    genders = [request.form.get(f'gender_{i}') for i in range(len(names))]
     roles  = request.form.getlist('role[]')
     majors = request.form.getlist('major[]')
     phones = request.form.getlist('phonenumber[]')
@@ -49,7 +50,7 @@ def result_page():
         return phone[:-2] + '**'
 
     students = []
-    for f, name, ID, role, major, phone, email in zip(files, IDs, names, roles, majors, phones, emails):
+    for f, name, ID, gender, role, major, phone, email in zip(files, names, IDs, genders, roles, majors, phones, emails):
         if f and allowed_file(f.filename):
             fname = secure_filename(f.filename)
             f.save(os.path.join(app.config['UPLOAD_FOLDER'], fname))
@@ -62,6 +63,7 @@ def result_page():
             'image': fname or 'profile.png',
             'name' : name,
             'ID'   : ID,
+            'gender' : gender, 
             'role' : role,
             'major': major,
             'phone': phone_masked,
