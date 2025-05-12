@@ -27,7 +27,7 @@ def intro():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', students=[])
 
 @app.route('/input')
 def input_page():
@@ -42,7 +42,9 @@ def result_page():
     roles  = request.form.getlist('role[]')
     majors = request.form.getlist('major[]')
     phones = request.form.getlist('phonenumber[]')
-    emails = request.form.getlist('emial[]')
+    email_ids = request.form.getlist('email_id[]')
+    email_domains = request.form.getlist('email_domain[]')
+    emails = [f"{id_}@{domain}" for id_, domain in zip(email_ids, email_domains)]
 
     def mask_phone_last2(phone):
         if len(phone) <= 2:

@@ -99,8 +99,8 @@
             <input type="text" name="ID[]" required value="{{ stu.name or '' }}">
             <label>성별:</label>
             <div>
-              <label><input type="radio" name="gender[]" value="Male" required> Male</label>
-              <label><input type="radio" name="gender[]" value="Female"> Female</label>
+              <label><input type="radio" name="gender_0" value="Male" required> Male</label>
+              <label><input type="radio" name="gender_0" value="Female"> Female</label>
             </div>
             <label>역할:</label>
             <input type="text" name="role[]" required value="{{ stu.role or '' }}">
@@ -109,8 +109,16 @@
             <label>전화번호:</label>
             <input type="text" name="phonenumber[]" required value="{{ stu.phone or '' }}">
             <label>이메일 정보:</label>
-            <input type="text" name="emial[]" required value="{{ stu.email or '' }}">
-          </div>
+            <p>
+              Email:
+              <input type="text" name="email_id[]" required> @
+              <select name="email_domain[]">
+                <option value="gmail.com">gmail.com</option>
+                <option value="naver.com">naver.com</option>
+                <option value="dgu.ac.kr">dgu.ac.kr</option>
+              </select>
+            </p>
+         </div>
           {%- endfor -%}
         </div>
         <button class="btn-primary" type="button" onclick="addPerson()">추가</button>
@@ -144,7 +152,15 @@
           <label>전화번호:</label>
           <input type="text" name="phonenumber[]" required>
           <label>이메일 정보:</label>
-          <input type="text" name="emial[]" required>
+          <p>
+            Email:
+            <input type="text" name="email_id[]" required> @
+            <select name="email_domain[]">
+                <option value="gmail.com">gmail.com</option>
+                <option value="naver.com">naver.com</option>
+                <option value="dgu.ac.kr">dgu.ac.kr</option>
+            </select>
+          </p>
         `;
         container.appendChild(newBlock);
         count++;
