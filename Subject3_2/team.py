@@ -27,7 +27,12 @@ def intro():
 
 @app.route('/')
 def index():
+    return render_template('intro.html')
+
+@app.route('/index')
+def index_page():
     return render_template('index.html', students=[])
+
 
 @app.route('/input')
 def input_page():
