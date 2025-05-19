@@ -8,7 +8,11 @@ FROM python:3
 WORKDIR /usr/src/app
 
 # 현재 local 경로에 있는 디렉토리(prac5)를 컨테이너 내부로 copy함
-COPY . .
+COPY Subject3_2/ ./
+
+RUN pip install flask werkzeug
+
+EXPOSE 5000
 
 # python ./main.py가 실행됨. 이때, main.py는 본인의 python 파일 이름으로 변경 가능
-CMD [ "python3", "main.py" ]
+CMD [ "python3", "team.py" ]
