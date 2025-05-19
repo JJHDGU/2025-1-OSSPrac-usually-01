@@ -1,0 +1,23 @@
+# docker-compose.yml
+
+# version: "3.0" # docker compose 파일의 버전
+
+services: # 아래는 서비스 정의
+  frontapp: # service1의 명칭
+    # 서비스 빌드를 위한 정의 내용
+    build:
+      context: ..
+      dockerfile: teamsub5/FrontEnd/Dockerfile
+    image: frontapp:latest
+    ports:
+      - "80:80"
+
+  backapp: # service2의 명칭
+    # 서비스 빌드를 위한 정의 내용
+    build:
+      context: ..
+      dockerfile: teamsub5/BackEnd/Dockerfile
+    image: backapp:latest
+    ports:
+      - "5000:5000"
+    command: ["python3", "team.py"]
