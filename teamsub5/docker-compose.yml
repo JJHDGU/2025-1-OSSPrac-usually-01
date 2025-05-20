@@ -19,5 +19,5 @@ services: # 아래는 서비스 정의
       dockerfile: teamsub5/BackEnd/Dockerfile
     image: backapp:latest
     ports:
-      - "5000:5000"
+      - "5001:5000"
     command: ["python3", "team.py"]
