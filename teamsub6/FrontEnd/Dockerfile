@@ -5,4 +5,4 @@
 FROM tiangolo/uwsgi-nginx-flask:python3.9
 
 # 현재 디렉토리의 ./Subject3_1/app 디렉토리를 컨테이너의 /app 디렉토리에 복사
-COPY . /app
+COPY . .
