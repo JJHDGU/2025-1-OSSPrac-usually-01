@@ -1,0 +1,15 @@
+version: "3"
+services:
+  backend:
+    build: ./BackEnd
+    image: jeongjunhui/teamsub6-backend:latest
+    ports:
+      - "5001:5000"     
+  frontend:
+    build: ./FrontEnd
+    image: jeongjunhui/teamsub6-frontend:latest
+    ports:
+      - "80:80"    
+    depends_on:
+      - backend
+
