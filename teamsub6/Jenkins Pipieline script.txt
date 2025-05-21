@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Prepare') {
             steps {
-                git url: 'https://github.com/CSID-DGU/2024-2-OSSPrac-usually-01.git',
+                git url: 'https://github.com/JJHDGU/2025-1-OSSPrac-usually-01.git',
                     branch: 'main',
                     credentialsId: 'github'
             }

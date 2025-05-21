@@ -8,7 +8,7 @@ FROM python:3
 WORKDIR /usr/src/app
 
 # 현재 local 경로에 있는 디렉토리(prac5)를 컨테이너 내부로 copy함
-COPY Subject3_2/ ./
+COPY . .
 
 RUN pip install flask werkzeug
 
