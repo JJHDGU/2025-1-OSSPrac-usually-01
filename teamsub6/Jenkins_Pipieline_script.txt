@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+
+    environment {
+        DOCKER_USR = credentials('dockerhub').username
+        DOCKER_PSW = credentials('dockerhub').password
+    }
+
+    stages {
+        stage('Prepare') {
+            steps {
+                git url: 'https://github.com/JJHDGU/2025-1-OSSPrac-usually-01.git',
+                    branch: 'main',
+                    credentialsId: 'github'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                dir('teamsub6') {
+                    sh "echo ${DOCKER_PSW} | docker login -u ${DOCKER_USR} --password-stdin"
+                    sh 'docker-compose build frontend'
+                    sh 'docker-compose build backend'
+                }
+            }
+        }
+
+        stage('Tag & Push') {
+            steps {
+                dir('teamsub6') {
+                    // 태깅 (이미지는 docker-compose.yml에 설정한 이미지명과 동일해야 함)
+                    sh "docker tag jeongjunhui/teamsub6-frontend:latest jeongjunhui/teamsub6-frontend:latest"
+                    sh "docker tag jeongjunhui/teamsub6-backend:latest jeongjunhui/teamsub6-backend:latest"
+                    // 푸시
+                    sh "docker push jeongjunhui/teamsub6-frontend:latest"
+                    sh "docker push jeongjunhui/teamsub6-backend:latest"
+                }
+            }
+        }
+    }
+}
+

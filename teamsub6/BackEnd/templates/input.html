@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <title>input</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Nanum Gothic', sans-serif;
+      background-color: #fff;
+    }
+
+    .header {
+        padding: 10px 40px;
+      }
+    .logo {
+        font-family: 'Pacifico', cursive;
+        font-size: 2rem;   
+        color: #262626;      
+        cursor: pointer;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-top: 30px;
+      font-size: 24px;
+    }
+    .form-container {
+      background-color: #ffffff;
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    input[type="text"], input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-family: 'Nanum Gothic', sans-serif;
+    }
+    .person-block {
+        padding: 20px;
+        margin-bottom: 30px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        box-shadow: 0px 2px 6px rgba(0,0,0,0.05);
+    }
+    .btn-primary {
+        display: inline-block;
+        width: 120px;         
+        padding: 0.75rem 0;
+        font-size: 16px;
+        font-weight: 500;
+        color: #fff;
+        background-color: #3b82f6;
+        border: none;
+        border-radius: 0.5rem;
+        text-align: center;
+    }
+    .btn-primary:hover {
+        background-color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo" onclick="location.href='/index'">Usually</div>
+    </div>
+
+    <h1>학생 정보 입력</h1>
+    <div class="form-container">
+      <form action="/result" method="POST" enctype="multipart/form-data" id="studentForm">
+        <div id="personContainer">
+          {%- set blocks = students if students else [{}] -%}
+          {%- for stu in blocks -%}
+          <div class="person-block">
+            <label>이미지:</label>
+            <input type="file" name="image[]" accept="image/*">
+            <label>이름:</label>
+            <input type="text" name="name[]" required value="{{ stu.name or '' }}">
+            <label>학번:</label>
+            <input type="text" name="ID[]" required value="{{ stu.name or '' }}">
+            <label>성별:</label>
+            <div>
+              <label><input type="radio" name="gender_0" value="Male" required> Male</label>
+              <label><input type="radio" name="gender_0" value="Female"> Female</label>
+            </div>
+            <label>역할:</label>
+            <input type="text" name="role[]" required value="{{ stu.role or '' }}">
+            <label>학과 (Major):</label>
+            <input type="text" name="major[]" required value="{{ stu.major or '' }}">
+            <label>전화번호:</label>
+            <input type="text" name="phonenumber[]" required value="{{ stu.phone or '' }}">
+            <label>이메일 정보:</label>
+            <p>
+              Email:
+              <input type="text" name="email_id[]" required> @
+              <select name="email_domain[]">
+                <option value="gmail.com">gmail.com</option>
+                <option value="naver.com">naver.com</option>
+                <option value="dgu.ac.kr">dgu.ac.kr</option>
+              </select>
+            </p>
+         </div>
+          {%- endfor -%}
+        </div>
+        <button class="btn-primary" type="button" onclick="addPerson()">추가</button>
+        <button class="btn-primary" type="submit">제출</button>
+      </form>
+    </div>
+  
+    <script>
+      let count = {{ blocks|length }};
+      function addPerson() {
+        if (count >= 3) return alert("최대 3명까지만 입력 가능합니다.");
+        const container = document.getElementById("personContainer");
+        const newBlock = document.createElement("div");
+        newBlock.className = "person-block";
+        newBlock.innerHTML = `
+          <label>이미지:</label>
+          <input type="file" name="image[]" accept="image/*">
+          <label>이름:</label>
+          <input type="text" name="name[]" required>
+          <label>학번:</label>
+          <input type="text" name="ID[]" required>
+          <label>성별:</label>
+          <div>
+            <label><input type="radio" name="gender_${count}" value="Male" required> Male</label>
+            <label><input type="radio" name="gender_${count}" value="Female"> Female</label>
+          </div>
+          <label>역할:</label>
+          <input type="text" name="role[]" required>
+          <label>학과 (Major):</label>
+          <input type="text" name="major[]" required>
+          <label>전화번호:</label>
+          <input type="text" name="phonenumber[]" required>
+          <label>이메일 정보:</label>
+          <p>
+            Email:
+            <input type="text" name="email_id[]" required> @
+            <select name="email_domain[]">
+                <option value="gmail.com">gmail.com</option>
+                <option value="naver.com">naver.com</option>
+                <option value="dgu.ac.kr">dgu.ac.kr</option>
+            </select>
+          </p>
+        `;
+        container.appendChild(newBlock);
+        count++;
+      }
+    </script>
+  </body>
+  </html>
