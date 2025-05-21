@@ -15,4 +15,4 @@ RUN pip install flask werkzeug
 EXPOSE 5000
 
 # python ./main.py가 실행됨. 이때, main.py는 본인의 python 파일 이름으로 변경 가능
-CMD [ "python3", "team.py" ]
+CMD [ "python3", "main.py" ]
