@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+
+    environment {
+        DOCKER = credentials('docker-hub')
+    }
+
+    stages {
+        stage('Prepare') {
+            steps {
+                git branch: 'main', url: 'https://github.com/JJHDGU/2025-1-OSSPrac-usually-01.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                dir('teamsub5') {
+                    sh 'docker compose build backapp'
+                }
+            }
+        }
+        stage('Tag') {
+            steps {
+                sh "docker tag backapp:latest $DOCKER_USR/backapp:latest"
+            }
+        }
+        stage('Push') {
+            steps {
+                sh "echo $DOCKER_PSW | docker login -u $DOCKER_USR --password-stdin"
+                sh "docker push $DOCKER_USR/backapp:latest"
+            }
+        }
+    }
+}
+
