@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Prepare') {
             steps {
-                git branch: 'main', url: 'https://github.com/JJHDGU/2025-1-OSSPrac-usually-01.git'
+                git branch: 'main', url: 'https://github.com/CSID-DGU/2025-1-OSSPrac-usually-01.git'
             }
         }
         stage('Build') {
